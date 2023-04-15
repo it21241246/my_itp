@@ -54,11 +54,12 @@ router.route("/update/:id").put( async (req,res)=>{
         category,
     }
 
-    const update = await Staff.findByIdAndUpdate(UserId, updateStaff)
+    const update = await Staff.findByIdAndUpdate(userId, updateStaff)
     .then(()=>{
-    res.status(200).send({status : "User updated successful!", user: update})
+    res.status(200).send({status : "User updated successful!"})
 }).catch((err)=>{
-    res.status(500).send({status : "Error in updating!", user: update})
+    console.log(err);
+    res.status(500).send({status: "Error with updating data",error: err.message})
 })   
 })
 
@@ -77,8 +78,8 @@ router.route("/delete/:id").delete(async(req,res)=>{
 router.route("/get/:id").get(async(req,res)=>{
     let userId = req.params.id;
     await Staff.findByIdAndDelete(userId)
-    .then(()=>{
-        res.status(200).send({status:"User feched successfully!"})
+    .then((staff)=>{
+        res.status(200).send({status:"User feched successfully!",staff})
     }).catch(()=>{
         console.log(err.message);
         res.status(500).send({status:"Error in fetching user",error :err.message})
