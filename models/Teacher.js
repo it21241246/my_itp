@@ -38,6 +38,11 @@ const teacherSchema = new Schema ({
         required : true
     },
 
+    email :{
+        type : String,
+        required : true
+    },
+
     workPlace : {
         type : String,
         required : true

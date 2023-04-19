@@ -25,6 +25,7 @@ routerTeacher.route("/addT").post((req,res)=>{
     const gender = req.body.gender;
     const land = Number(req.body.land);
     const mobile = Number(req.body.mobile);
+    const email = req.body.email;
     const workPlace = req.body.workPlace;
     //const image = '/uploads/' + req.file.filename;
 
@@ -37,6 +38,7 @@ routerTeacher.route("/addT").post((req,res)=>{
         gender,
         land,
         mobile,
+        email,
         workPlace,
         //image : file? file.filename :"",
     })
@@ -59,7 +61,7 @@ routerTeacher.route("/T").get((req,res)=>{
 
 routerTeacher.route("/updateT/:id").put( async (req,res)=>{
     let userId = req.params.id;
-    const {name,nic,address,age,gender,land,mobile,workPlace} = req.body;
+    const {name,nic,address,age,gender,land,mobile,email,workPlace} = req.body;
 
     const updateTeacher = {
         name,
@@ -69,6 +71,7 @@ routerTeacher.route("/updateT/:id").put( async (req,res)=>{
         gender,
         land,
         mobile,
+        email,
         workPlace
     }
 

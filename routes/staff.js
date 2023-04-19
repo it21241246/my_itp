@@ -10,6 +10,7 @@ router.route("/add").post((req,res)=>{
     const gender = req.body.gender;
     const land = Number(req.body.land);
     const mobile = Number(req.body.mobile);
+    const email = req.body.email;
     const category = req.body.category;
 
     const newStaff = new Staff({
@@ -20,6 +21,7 @@ router.route("/add").post((req,res)=>{
         gender,
         land,
         mobile,
+        email,
         category,
     })
 
@@ -41,7 +43,7 @@ router.route("/").get((req,res)=>{
 
 router.route("/update/:id").put( async (req,res)=>{
     let userId = req.params.id;
-    const {name,nic,address,age,gender,land,mobile,category,} = req.body;
+    const {name,nic,address,age,gender,land,mobile,email,category} = req.body;
 
     const updateStaff = {
         name,
@@ -51,6 +53,7 @@ router.route("/update/:id").put( async (req,res)=>{
         gender,
         land,
         mobile,
+        email,
         category,
     }
 

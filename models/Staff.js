@@ -38,6 +38,11 @@ const staffSchema = new Schema({
         required : true
     },
 
+    email : {
+        type : String,
+        required : false
+    },
+
     category : {
         type : String,
         required : true
